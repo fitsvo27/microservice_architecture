@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS users_scheme."Users"
     avatar_link character varying COLLATE pg_catalog."default",
     email character varying COLLATE pg_catalog."default",
     phone_number character varying COLLATE pg_catalog."default" NOT NULL,
+    deleted bit(1),
     CONSTRAINT "Users_pkey" PRIMARY KEY (id),
     CONSTRAINT avatar_link_un UNIQUE (avatar_link),
     CONSTRAINT email_un UNIQUE (email),
