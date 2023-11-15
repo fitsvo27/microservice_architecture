@@ -1,18 +1,19 @@
 package ru.skillbox.UsersApplication.service;
 
 import org.springframework.http.HttpStatus;
+import ru.skillbox.UsersApplication.dto.UserDto;
 import ru.skillbox.UsersApplication.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    List<User> getUsers();
+    List<UserDto> getUsers();
 
-    User getUser(Integer id);
+    UserDto getUser(Integer id);
 
-    User saveUser(User user);
+    UserDto saveUser(UserDto user);
 
-    User updateUser(Integer id, User user);
+    UserDto updateUser(Integer id, UserDto user);
 
     String deleteUser(Integer id);
 }

@@ -1,13 +1,16 @@
 package ru.skillbox.UsersApplication.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "users", schema = "users_scheme")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
