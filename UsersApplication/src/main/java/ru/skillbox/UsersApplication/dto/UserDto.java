@@ -22,7 +22,7 @@ public class UserDto {
     @JsonProperty("middlename")
     private String middlename;
     @JsonProperty("gender")
-    private String gender;
+    private Character gender;
     @JsonProperty("date_of_birth")
     private Date dateOfBirth;
     @JsonProperty("avatar_link")

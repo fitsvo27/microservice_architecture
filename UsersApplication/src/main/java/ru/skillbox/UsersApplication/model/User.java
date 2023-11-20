@@ -25,7 +25,7 @@ public class User {
     @Column(name = "middlename")
     private String middlename;
     @Column(name = "gender")
-    private String gender;
+    private char gender;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
     @Column(name = "avatar_link")
