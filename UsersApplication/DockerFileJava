@@ -1,0 +1,7 @@
+FROM openjdk:17-jdk-slim-buster
+LABEL maintainer="v.fits"
+VOLUME /tmp
+EXPOSE 7070
+ARG JAR_FILE=build/libs/UsersApplication.war
+COPY ${JAR_FILE} UsersApplication.war
+ENTRYPOINT ["java","-jar","UsersApplication.war"]

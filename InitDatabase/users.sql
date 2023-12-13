@@ -1,4 +1,3 @@
-create extension if not exists pg_stat_statements;
 CREATE TABLE IF NOT EXISTS "users"
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
@@ -12,14 +11,4 @@ CREATE TABLE IF NOT EXISTS "users"
     email character varying(255),
     phone_number character varying(255),
     deleted boolean
-);
-CREATE TABLE IF NOT EXISTS friends
-(
-    user_id bigint NOT NULL,
-    user_friend_id bigint NOT NULL
-);
-CREATE TABLE IF NOT EXISTS images_storage
-(
-    user_id bigint NOT NULL,
-    s3_link bit varying(255) NOT NULL
 );
