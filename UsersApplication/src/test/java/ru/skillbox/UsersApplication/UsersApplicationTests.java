@@ -37,12 +37,6 @@ class UsersApplicationTests {
             .withPassword("postgres")
             .withInitScript("db.sql");
 
-    //	@DynamicPropertySource
-//	static void configureProperties(DynamicPropertyRegistry registry) {
-//		registry.add("spring.datasource.url", postgres::getJdbcUrl);
-//		registry.add("spring.datasource.username", postgres::getUsername);
-//		registry.add("spring.datasource.password", postgres::getPassword);
-//	}
     static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
             TestPropertyValues.of(
@@ -84,6 +78,5 @@ class UsersApplicationTests {
         String[] actualUsers = users.stream().map(User::getLogin).toList().toArray(new String[0]);
         var arrayEquals = new ArrayEquals(actualUsers);
         arrayEquals.matches(staticUsers);
-
     }
 }
