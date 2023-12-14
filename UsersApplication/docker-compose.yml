@@ -57,9 +57,6 @@ services:
       - "7070:7070"
     depends_on:
       - postgres
-    environment:
-      POSTGRES_DB_HOST: postgres_container
-      POSTGRES_DB_PORT: 5432
     restart: unless-stopped
     networks:
       - postgres
