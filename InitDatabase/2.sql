@@ -12,3 +12,4 @@ CREATE TABLE IF NOT EXISTS friends
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
+CREATE INDEX i_user_friends on friends(user_id);

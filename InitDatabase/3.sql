@@ -8,3 +8,4 @@ CREATE TABLE IF NOT EXISTS images_storage
             ON UPDATE NO ACTION
             ON DELETE NO ACTION
 );
+CREATE INDEX i_user_avatar on images_storage(user_id);
