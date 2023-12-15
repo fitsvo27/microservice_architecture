@@ -6,5 +6,9 @@ CREATE TABLE IF NOT EXISTS friends
     CONSTRAINT fk_user_friend FOREIGN KEY (user_id)
         REFERENCES public.users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT fk_user_friend_id FOREIGN KEY (user_friend_id)
+        REFERENCES public.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
