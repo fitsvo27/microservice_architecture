@@ -17,3 +17,4 @@ CREATE TABLE IF NOT EXISTS "users"
 CREATE INDEX i_user_login on users(login);
 CREATE INDEX i_user_lastname on users(lastname);
 CREATE INDEX i_user_city on users(city);
+CREATE INDEX i_user_gender on users(gender);
