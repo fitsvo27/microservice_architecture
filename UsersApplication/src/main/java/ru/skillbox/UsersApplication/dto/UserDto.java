@@ -12,7 +12,7 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("login")
     private String login;
     @JsonProperty("lastname")

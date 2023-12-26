@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll().stream().map(userMapper::userToUserDto).toList();
     }
 
-    public UserDto getUser(Integer id) {
+    public UserDto getUser(long id) {
         return userMapper.userToUserDto(userRepository.findById(id).orElseThrow(() -> new RuntimeException(String.valueOf(HttpStatus.NOT_FOUND))));
     }
 
@@ -31,13 +31,13 @@ public class UserServiceImpl implements UserService{
         return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
     }
 
-    public UserDto updateUser(Integer id, UserDto userDto) {
+    public UserDto updateUser(long id, UserDto userDto) {
         if (userRepository.existsById(id)){
             return userMapper.userToUserDto(userRepository.save(userMapper.userDtoToUser(userDto)));
         } else throw new RuntimeException(String.valueOf(HttpStatus.NOT_FOUND));
     }
 
-    public String deleteUser(Integer id) {
+    public String deleteUser(long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException(String.valueOf(HttpStatus.NOT_FOUND)));
         user.setDeleted(true);
         userRepository.save(user);
