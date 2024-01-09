@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres_container:5432/users
+    username: postgres
+    password: postgres
+server:
+  port: 7070
