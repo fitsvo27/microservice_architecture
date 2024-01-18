@@ -1,0 +1,148 @@
+databaseChangeLog:
+  - changeSet:
+      id: 000-1
+      author: vova
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: login
+                  type: character varying(255)
+              - column:
+                  name: lastname
+                  type: character varying(255)
+              - column:
+                  name: firstname
+                  type: character varying(255)
+              - column:
+                  name: middlename
+                  type: character varying(255)
+              - column:
+                  name: city
+                  type: character varying(255)
+              - column:
+                  name: gender
+                  type: character(1)
+              - column:
+                  name: date_of_birth
+                  type: timestamp
+              - column:
+                  name: avatar_link
+                  type: character varying(255)
+              - column:
+                  name: email
+                  type: character varying(255)
+              - column:
+                  name: phone_number
+                  type: character varying(255)
+              - column:
+                  name: deleted
+                  type: boolean
+
+  - changeSet:
+      id: 000-2
+      author: vova
+      changes:
+        - createTable:
+            tableName: friends
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_friend_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 000-3
+      author: vova
+      changes:
+        - createTable:
+            tableName: images_storage
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: s3_link
+                  type: bit varying(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 000-4
+      author: vova
+      changes:
+        - createIndex:
+            indexName: i_user_login
+            tableName: users
+            columns:
+              - column:
+                  name: login
+        - createIndex:
+            indexName: i_user_lastname
+            tableName: users
+            columns:
+              - column:
+                  name: lastname
+        - createIndex:
+            indexName: i_user_city
+            tableName: users
+            columns:
+              - column:
+                  name: city
+        - createIndex:
+            indexName: i_user_gender
+            tableName: users
+            columns:
+              - column:
+                  name: gender
+
+  - changeSet:
+      id: 000-5
+      author: vova
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_user_friend
+            baseTableName: friends
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: 'NO ACTION'
+            onUpdate: 'NO ACTION'
+        - addForeignKeyConstraint:
+            constraintName: fk_user_friend_id
+            baseTableName: friends
+            baseColumnNames: user_friend_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: 'NO ACTION'
+            onUpdate: 'NO ACTION'
+        - addForeignKeyConstraint:
+            constraintName: fk_user_avatar
+            baseTableName: images_storage
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: 'NO ACTION'
+            onUpdate: 'NO ACTION'
+
+
+
+
+
+
