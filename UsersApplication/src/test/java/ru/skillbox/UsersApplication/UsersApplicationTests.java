@@ -11,8 +11,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -37,8 +35,7 @@ class UsersApplicationTests {
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:14-alpine")
             .withDatabaseName("users")
             .withUsername("postgres")
-            .withPassword("postgres")
-            .withInitScript("db.sql");
+            .withPassword("postgres");
 
     static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
